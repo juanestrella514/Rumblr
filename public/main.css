@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+
+
+body { 
+    /* background-image: url('https://images.unsplash.com/photo-1513738883496-ab16da46fbe0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60'); */
+    background-image: url('https://images.unsplash.com/photo-1477973770766-6228305816df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60');
+    /* background-image: url('https://images.unsplash.com/photo-1519150268069-c094cfc0b3c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+  
+
+nav {
+    display: grid;
+    margin: 0;
+    text-align: center;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    background: linear-gradient(45deg, #0b252c, #090f1685 100px);
+}
+
+
+a {
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: .5em;
+    margin: .5em;
+    font-size: 2em;
+    font-weight: bold;
+    transition: all 1.5s;
+    color: ivory;
+}
+
+
+
+h1 {
+    font-size: 42pt;
+    color: ivory;
+    transition: ease-in .7s;
+    position: absolute;
+    top: 34%;
+}
+  
+
+/* signup */
+
+#signup-body {
+    /* background: linear-gradient(50deg, #0b252c, #090f1685); */
+    /* background: linear-gradient(50deg, #111f23e0, #050b12d9); */
+     background-image: url('https://images.unsplash.com/photo-1513738883496-ab16da46fbe0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60');
+}
+
+#form-contianer {
+    background-color: #13111278;
+    width: 15%;
+    height: auto;
+    position: absolute;
+    right: 10%;
+    top: 24%;
+    text-align: center;
+    transition: ease-out 1.5s;
+    border-radius: 20px 20px 20px 20px;
+
+
+}
+
+.form-top {
+    color: ivory;
+    font-size: 10pt;
+    background-color: #CE3A2D;
+    /* transition: none; */
+}
+
+.signup {
+    font-size: 42pt;
+    color: ivory;
+    transition: ease-in .7s;
+}
+
+form {
+    /* background-color: aqua; */
+    /* background-color: #0d1d1eba; */
+    color: ivory;
+ 
+}
+
+input {
+    border-radius: 20px 20px 20px 20px;
+    text-align: center;
+}
