@@ -9,10 +9,11 @@ require './models'
 set :port, 3000
 
 
-set :database, {adapter: "sqlite3", database: "./rumblr.sqlite3"}
+set :database, {adapter: 'postgresql', database: 'rumblr', username: 'postgres', password: ENV['POSTGRES_PW']}
+
 enable :sessions
 
-set :show_exceptions, :after_handler
+# set :show_exceptions, :after_handler
 
 
 
@@ -25,7 +26,7 @@ get '/signup' do
 end
 
 post '/signup' do
-    @user = User.new(params[:user])
+    @user = User.new(params[:firstname])
     if @user.valid?
         @user.save
         redirect '/profile'
@@ -44,12 +45,12 @@ end
 post '/login' do
     @user = User.find_by(email: params[:email])
     given_password = params[:password]  
-    # if @user.password == given_password
-    #     session[:user_id] = @user.id    
-    redirect '/profile'
+    if @user.password == given_password
+        session[:user_firstname] = @user.firstname   
+        redirect '/profile'
 
-    # else
-    # end
+    else
+    end
 end
 
 
@@ -59,12 +60,12 @@ end
 #     erb :profile
 # end
 
-get '/profile/:firstname' do  
-    @user = User.find(params[:firstname])
+get '/profile/:id' do  
+    @user = User.find(params[:id])
     erb :profile
     rescue ActiveRecord::RecordNotFound
         puts "ERROR 404"
-        erb:home
+        erb:profile
 end
 
 # get '/profile/:id' do  
