@@ -1,7 +1,16 @@
-<h1> Log In</h1>
+<body id="login-body">
 
-<form action='/login' method='post'> 
-   <input type='email' name='user[email]' placeholder='Email'>
-   <input type='password' name='user[password]' placeholder='password'>
-   <input type='submit' value='Sign In'>
-</form>
+   <div id='login-container'>
+   <div class="login"> Log In</div>
+
+   <form action='/login' method='post'> 
+      <label for="email">Email</label><br>
+      <input type='email' name='user[email]' placeholder='Email'><br>
+      <label for="password">Password</label><br>
+      <input type='password' name='user[password]' placeholder='Password'><br>
+      <input class='login-btn' type='submit' value='Sign In'>
+   </form>
+
+   </div>
+
+</body>
