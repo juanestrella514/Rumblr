@@ -26,14 +26,16 @@ get '/signup' do
 end
 
 post '/signup' do
-    @user = User.new(params[:firstname])
-    if @user.valid?
-        @user.save
-        redirect '/profile'
-    else
-        flash[:error] = @user.errors.full_messages
-        redirect '/signup'
-    end
+    @user = User.new(params[:user])
+    # if @user.valid?
+    #     @user.save
+    #     redirect '/profile'
+    # else
+    #     flash[:error] = @user.errors.full_messages
+    #     redirect '/signup'
+    # end
+    pp @user
+
 end
 
 get '/login' do
@@ -44,7 +46,7 @@ end
 
 post '/login' do
     @user = User.find_by(email: params[:email])
-    given_password = params[:password]  
+    given_password == params[:password]  
     if @user.password == given_password
         session[:user_firstname] = @user.firstname   
         redirect '/profile'
@@ -60,8 +62,8 @@ end
 #     erb :profile
 # end
 
-get '/profile/:id' do  
-    @user = User.find(params[:id])
+get '/profile/:email' do  
+    @user = User.find(params[:email])
     erb :profile
     rescue ActiveRecord::RecordNotFound
         puts "ERROR 404"
