@@ -13,8 +13,6 @@ set :database, {adapter: 'postgresql', database: 'rumblr', username: 'postgres',
 
 enable :sessions
 
-# set :show_exceptions, :after_handler
-
 
 
 get '/' do 
@@ -27,55 +25,51 @@ end
 
 post '/signup' do
     @user = User.new(params[:user])
-    # if @user.valid?
-    #     @user.save
-    #     redirect '/profile'
-    # else
-    #     flash[:error] = @user.errors.full_messages
-    #     redirect '/signup'
-    # end
-    pp @user
-
+    if @user.valid?
+        @user.save
+        session[:user_id] = @user.id
+        session[:first_name] = @user.firstname
+        redirect %(/profile/#{@user.id})
+    else
+        flash[:error] = @user.errors.full_messages
+        redirect '/signup'
+    end
 end
 
 get '/login' do
     erb :login
 end
 
-#fix this post not working
 
 post '/login' do
-    @user = User.find_by(email: params[:email])
-    given_password == params[:password]  
+    @user = User.find_by(email: params["email"])
+    given_password = params[:password]  
     if @user.password == given_password
-        session[:user_firstname] = @user.firstname   
+        session[:user_id] = @user.id
+        session[:first_name] = @user.firstname  
         redirect '/profile'
-
     else
     end
 end
 
 
 
-# get '/profile' do
-#     redirect '/' unless session[:user_id]
-#     erb :profile
-# end
-
-get '/profile/:email' do  
-    @user = User.find(params[:email])
+get '/profile' do  
+    @user = User.find_by(id: params[:id])
     erb :profile
-    rescue ActiveRecord::RecordNotFound
-        puts "ERROR 404"
-        erb:profile
+    # rescue ActiveRecord::RecordNotFound
+    #     puts "ERROR 404"
+    #     erb :profile
 end
 
-# get '/profile/:id' do  
-#     @user = User.find(params[:id])
-#     # @dogs = @user.dogs
-#     # raise StandardError.new('This user has no dogs')
-#     erb :profile   
-# end
+post '/profile' do
+    @article = Article.new(title: params["title"], content: params["content"], user_id: session[:user_id])
+    if @article.valid?
+        @article.save
+        redirect '/profile'
+    end
+end 
+
     
 post '/logout' do
     session.clear
@@ -86,4 +80,9 @@ end
 not_found do
     '<img src="https://i.gifer.com/5Oe.gif" height="100%" width="100%">'
 end
+
+
+
+
+
 
