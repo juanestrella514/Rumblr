@@ -66,6 +66,8 @@ post '/profile' do
     @article = Article.new(title: params["title"], content: params["content"], user_id: session[:user_id])
     if @article.valid?
         @article.save
+        session[:title] = @article.title
+        session[:content] = @article.content
         redirect '/profile'
     end
 end 
