@@ -1,20 +1,23 @@
 
 
-
-<!-- <h1>Post Something!</h1> -->
-
-<form class="blog-form" action="/profile" method="POST">
-    <h3><%= session[:first_name] %></h3>
-    <input type="text" name="title" placeholder="Title"><br>
-    <textarea name="content" rows="3" cols="30"></textarea><br>
-    <input type="submit" value="Post">
-</form>
-<div id="article"> 
-    <ul>
-        <%= session[:title]%> <br>
-        <%= session[:content]%>
-    </ul>
-</div>
+<div id="user">
+    <h1>Welcome <%= session[:first_name] %></h1>
     
+</div>
+
+<div class="article-form">
+    <form  action="/profile" method="POST">
+        <input class="article-textbox type="text" name="title" placeholder="Title"><br>
+        <textarea class="article-textbox name="content" rows="3" cols="30"></textarea><br>
+        <input class="post-btn" type="submit" value="Post">
+    </form>
+</div>
+
+<% @user.articles.order(created_at: :desc).limit(20).each do |article|%>
+    <div id="article">
+        <h2><%=article.title%></h2><br>
+        <h3><%=article.content%><h>
+    </div>
+<% end %>
 
 
