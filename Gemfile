@@ -1,7 +1,7 @@
 source "http://rubygems.org" do
-    gem 'sinatra-activerecord'
-    gem 'pg'
-    gem 'rake'
-    gem 'sinatra'
+    gem "sinatra-activerecord"
+    gem "rake"
+    gem "sinatra"
     gem "sinatra-flash"
+    gem "pg"
 end
