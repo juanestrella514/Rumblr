@@ -8,9 +8,13 @@ require './models'
 
 set :port, 3000
 
+configure :development do
+    set :database, {adapter: 'postgresql', encoding: 'unicode', database: 'rumblr', username: 'postgres',  password: ENV['POSTGRES_PW']}
+end
 
-set :database, {adapter: 'postgresql', encoding: 'unicode', database: 'rumblr', username: 'postgres', url: ENV['DATABASE_URL'], password: ENV['POSTGRES_PW']}
-
+configure :production do
+    set :database, {url: ENV['DATABASE_URL']}
+end
 
 enable :sessions
 
