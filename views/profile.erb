@@ -1,3 +1,23 @@
 
 
-<h1><%= @user.email %></h1>
+<div id="user">
+    <h1>Welcome <%= session[:first_name] %></h1>
+    
+</div>
+
+<div class="article-form">
+    <form  action="/profile" method="POST">
+        <input class="article-textbox type="text" name="title" placeholder="Title"><br>
+        <textarea class="article-textbox name="content" rows="3" cols="30"></textarea><br>
+        <input class="post-btn" type="submit" value="Post">
+    </form>
+</div>
+
+<% @user.articles.order(created_at: :desc).limit(20).each do |article|%>
+    <div id="article">
+        <h2><%=article.title%></h2><br>
+        <h3><%=article.content%><h>
+    </div>
+<% end %>
+
+
