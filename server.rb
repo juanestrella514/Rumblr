@@ -7,7 +7,6 @@ require 'pg'
 
 
 
-set :port, 3000
 
 configure :development do
     set :database, {adapter: 'postgresql', encoding: 'unicode', database: 'rumblr', username: 'postgres',  password: ENV['POSTGRES_PW']}
