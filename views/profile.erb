@@ -1,14 +1,13 @@
 
 
-<div id="user">
-    <h1>Welcome <%= session[:first_name] %></h1>
-    
-</div>
+
+    <h1 class="user">Welcome <%= session[:first_name] %></h1>
+
 
 <div class="article-form">
     <form  action="/profile" method="POST">
-        <input class="article-textbox type="text" name="title" placeholder="Title"><br>
-        <textarea class="article-textbox name="content" rows="3" cols="30"></textarea><br>
+        <input class="article-textbox" type="text" name="title" placeholder="Title"><br>
+        <textarea class="article-textbox" name="content" rows="3" cols="30"></textarea><br>
         <input class="post-btn" type="submit" value="Post">
     </form>
 </div>

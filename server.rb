@@ -77,6 +77,6 @@ get '/logout' do
 end
 
 
-# not_found do
-#     '<img src="https://i.gifer.com/5Oe.gif" height="100%" width="100%">'
-# end
+not_found do
+    '<img src="https://i.gifer.com/5Oe.gif" height="100%" width="100%">'
+end

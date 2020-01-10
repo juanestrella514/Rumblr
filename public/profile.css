@@ -51,43 +51,24 @@ h1 {
     font-size: 42pt;
     color: ivory;
     transition: ease-in .7s;
-    /* position: absolute; */
-    /* top: 34%; */
+  
 }
 
-/* .search {
-    width: 100px;
-    height: 10px;
-    display: inline-block;
-    position: relative;
-    border-radius: 3px;
-    text-decoration: none;
-    padding: .5em;
-    margin: .5em;
-    font-size: 2em;
-    font-weight: bold;
-    transition: all 1.5s;
-    color: ivory;
-} */
-  
+
 /* user */
 
 #user {
     grid-area: user;
     height: auto;
     width: 20%;
-    background: aquamarine;
+    background: linear-gradient(45deg, #0b252c, #090f1685 100px);
+
 }
 
 /* article */
+
 .article-form {
-    /* background: linear-gradient(180deg, #ccc, #fff);
-    height: auto;
-    width: 300px;
-    grid-area: text;
-    grid-gap: ;
-    text-align: center; */
-    
+ 
     background-color: #13111278;
     height: auto;
     width: 220px;
