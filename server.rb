@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'sinatra'
 require "sinatra/flash"
 require './models'
+require 'pg'
 
 
 
