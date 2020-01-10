@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="signup.css">
+    <title>Rumblr</title>
+</head>
+  <body>
+        <nav>
+            <div><a href="/">Home</a></div>
+            <% if !session[:user_id] %>
+                <div><a href="/signup">Signup</a></div>
+                <div><a href="/login">Login</a></div>
+            <% end %>
+            <% if session[:user_id] %>
+                <div><a href="/profile">Profile</a></div>
+                <div><a href="/">Logout</a></div>
+            <% end %>
+        </nav>
+
+    <%= yield %>
+    </body>
+</html>

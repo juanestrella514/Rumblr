@@ -1,0 +1,39 @@
+#login-body {
+        /* background-image: url('https://images.unsplash.com/photo-1513738883496-ab16da46fbe0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60'); */
+        
+        background-image: url('https://images.pexels.com/photos/33053/dog-young-dog-small-dog-maltese.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        background-attachment: fixed;
+        
+}
+
+#login-container {
+    /* float: right; */
+    background-color: #13111278;
+    width: 15%;
+    height: auto;
+    position: absolute;
+    right: 10%;
+    top: 24%;
+    text-align: center;
+    transition: ease-out 1.5s;
+    border-radius: 20px 20px 20px 20px;
+    color: ivory;
+    
+}
+
+.login {
+    font-size: 42pt;
+    color: ivory;
+    transition: ease-in .7s;
+    text-align: center;
+}
+
+.login-btn {
+    width: 60px;
+}
+
+
