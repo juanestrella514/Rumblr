@@ -62,9 +62,6 @@ end
 get '/profile' do  
     @user = User.find_by(id: session[:user_id])
     erb :profile, :layout => :user_layout
-    # rescue ActiveRecord::RecordNotFound
-    #     puts "ERROR 404"
-    #     erb :profile
 end
 
 post '/profile' do
@@ -75,6 +72,15 @@ post '/profile' do
     end
 end 
 
+get '/feed' do
+    @article = Article.all
+    erb :feed, :layout => :user_layout
+end
+
+delete '/articles' do
+    @article = Article.find(params['user_id'])
+    @article.destroy
+end
     
 get '/logout' do
     session[:user_id] = nil

@@ -1,0 +1,12 @@
+
+    
+<div class="test">
+    <% @article.order(created_at: :desc).limit(100).each do |article| %>
+    <h2> <%= session[:first_name] %></h2>
+    <h3><%= article.content %></h3>
+                <div class=post-container>
+                <div class="all-post">
+        </div>
+        <% end %>
+    </div>
+</div>
